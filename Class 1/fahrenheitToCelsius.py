@@ -1,5 +1,5 @@
-c = int(input("What is the celsius? "))
+f = int(input("What is the fahrenheit? "))
 
-f = c * 9/5 + 32
+c = ( f - 32 ) * 0.5556
 
-print(f"{c} degrees in celsius is the same as {f} degrees in fahrenheit.")
+print(f"{f} degrees in fahrenheit is the same as {c} degrees in celsius.")
