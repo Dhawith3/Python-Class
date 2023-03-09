@@ -1,7 +1,10 @@
-# this is my forever loop program
+m = int(input("What multiple do you need? "))
+l = int(input("How many of the multiple do you need? "))
 
 counter = 1
 
-while counter <= 10:
-    print(counter * 3)
+while counter <= l :
+
+    print(f"{counter * m}")
+
     counter = counter + 1
