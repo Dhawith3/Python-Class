@@ -1,23 +1,31 @@
 from turtle import *
 
-def polygon( sides, length ):
+sides = int(input("How many sides does your polygon have? "))
+length = int(input("How long do you want your polygon to be? "))
+size = int(input("How thick do you want the pen to be? "))
+border = str(input("What border color do you want you polygon to have? "))
+fill = str(input("What fill color do you want you polygon to have? "))
 
-    color("purple", "pink")
-    pensize(3)
+i = 1
 
-    begin_fill()
+penup()
 
-    i = 0
-    while i < sides:
-        forward(length)
-        left(360/sides)
-        i = i + 1
+pensize(size)
+color(border, fill)
 
-    end_fill()
+goto(-200, -200)
 
-s = int(input("How many sides do you want your polygon to be? "))
-l = int(input("How long do you want your polygon to be? "))
+pendown()
 
-polygon( s, l )
+begin_fill()
+
+while i <= sides:
+
+    forward(length)
+    left(360/sides)
+
+    i = i + 1
+
+end_fill()
 
 done()
