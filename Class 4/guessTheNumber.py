@@ -1,27 +1,68 @@
 import random
+from itertools import repeat
 
-num = random.randint(1, 9)
-guess = False
-counter = 1
+level = str(input("Choose a level ( easy, medium, hard ): "))
 
-while not guess:
+def game(l):
 
-        usernum = int(input("Guess the number from 1 - 9!"))
+    counter = 1
+
+    cn = random.randrange(1, l)
+
+    while counter <= 4:
+
+        un = int(input(f"Guess the number ( 1 - {l} ): "))
+
+        if counter == 3:
+
+            print(f"You ran out of lives, the number was {cn}. Do you want to try again ( y or n ) ?")
+
+            yn = str(input())
+
+            if yn == "y":
+
+                game(l)
+
+            else:
+
+                break
+
+        elif un < cn:
+
+            print("Guess higher")
+
+        elif un == cn:
+
+            print("You're right!")
+
+            yn = input("Do you want to play again!? ")
+
+            if yn == "y":
+
+                game(l)
+
+            else:
+
+                break
+
+        elif un > cn:
+
+            print("Guess lower")
+
+        else:
+
+            print("Please guess in between the range.")
+
         counter = counter + 1
 
-        if usernum == num:
-            guess = True
-        elif usernum < num:
-            print("Too low!")
-        else:
-            print("Too high!")
+if level == "easy":
 
-        if counter > 3 and not guess:
-            print("Too many guesses!")
+    game(10)
 
-            break
+elif level == "medium":
 
-if guess:
-    print("You guessed it right!")
-else:
-    print(f"You lost! The number was {num}")
+    game(50)
+
+elif level == "hard":
+
+    game(100)
